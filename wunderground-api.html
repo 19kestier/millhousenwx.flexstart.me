@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>hello weather</title>
+<script type="text/javascript">
+//<![CDATA[
+var WU_API_KEY = '9a49e3e00964c81e';
+var weather = new XMLHttpRequest();
+weather.onreadystatechange=function() {
+  if (weather.readyState==4 && weather.status==200) {
+    var data = JSON.parse(weather.responseText); 
+    console.log(data);
+    document.getElementById("current_city").innerHTML=data.current_observation.display_location.full;
+    document.getElementById("current_weather").innerHTML=data.current_observation.temp_f;
+  }
+}
+weather.open("GET", "http://api.wunderground.com/api/"+WU_API_KEY+"/conditions/q/PWS:KINMILLH2.json", true);
+weather.send();
+//]]>
+</script>
+</head>
+<body>
+<h1>hello world weather</h1>
+weather in <span id="current_city">(loading)</span> is 
+<span id="current_weather">(loading)</span>
+</body>
+</html>
