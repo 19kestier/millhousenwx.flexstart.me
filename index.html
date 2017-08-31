@@ -15,7 +15,7 @@ weather.onreadystatechange=function() {
     document.getElementById("current_weather").innerHTML=data.current_observation.temp_f;
   }
 }
-weather.open("GET", "http://api.wunderground.com/api/"+WU_API_KEY+"/conditions/q/PWS:KINMILLH2.json", true);
+weather.open("GET", "https://api.wunderground.com/api/"+WU_API_KEY+"/conditions/q/PWS:KINMILLH2.json", true);
 weather.send();
 //]]>
 </script>
